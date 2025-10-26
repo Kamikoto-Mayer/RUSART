@@ -1,0 +1,76 @@
+.container {
+  background-color: #e4d39a;
+  padding-top: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.wrapper {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+  line-height: 117%;
+
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+	  text-align: center;
+	  line-height: 117%;
+color: #000;
+
+  }
+}
+
+.contactCard {
+  background: linear-gradient(171deg, #e2be72 42.74%, #4f4314 100%);  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.contactList {
+  display: flex;
+  /* flex-direction: column; */
+  gap: 40%;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+@media (max-width: 768px) {
+  .contactList {
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+  }
+  .contactGroup h3 {
+	text-align: center;
+  }
+  .contactText {
+	text-align: center;
+  }
+}
+
+.contactGroup h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.contactText {
+font-weight: 400;
+/* font-size: 20px; */
+line-height: 112%;
+color: #000;
+}

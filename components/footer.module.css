@@ -1,0 +1,158 @@
+/* Footer Styles */
+.footer {
+  background-color: #282828;
+  color: #fff;
+  padding: 3rem 1rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 4rem 1rem 2rem;
+  }
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Мобильная версия - центрируем всё */
+@media (max-width: 639px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем по горизонтали */
+    text-align: center; /* Центрируем текст */
+  }
+  
+  /* Лого перемещаем в конец сетки */
+  .grid > div:first-child {
+    order: 3;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%; /* Чтобы разделитель был на всю ширину */
+  }
+  
+  .grid > div:nth-child(2) {
+    order: 1;
+  }
+  
+  .grid > div:nth-child(3) {
+    order: 2;
+  }
+  
+  /* Центрируем списки */
+  .list {
+    align-items: center;
+  }
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start; /* На планшетах выравниваем по верху */
+    text-align: left; /* На планшетах текст слева */
+  }
+  
+  .grid > div:first-child {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .list {
+    align-items: start; /* Списки по левому краю */
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+  
+  .grid > div:first-child {
+    grid-column: auto;
+    text-align: left;
+    margin-bottom: 0;
+  }
+}
+
+/* Стили для логотипа */
+.logo {
+  max-width: 200px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+@media (min-width: 640px) {
+  .logo {
+    max-width: 240px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .logo {
+    margin: 0 auto; /* Автоматические отступы по бокам центрируют */
+  }
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link {
+  color: #fff;
+  transition: color 0.3s ease;
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #a0a0a0;
+}
+
+.contactItem {
+  color: #fff;
+  font-size: 0.9375rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.875rem;
+}

@@ -1,0 +1,157 @@
+/* Location Section Styles */
+.location {
+  padding: 3rem 1rem;
+  /* Updated background to #E4D39A */
+  background-color: #e4d39a;
+}
+
+@media (min-width: 768px) {
+  .location {
+    padding: 6rem 1rem;
+  }
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.subtitle {
+  text-align: center;
+  color: #333333;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.card {
+  background: linear-gradient(143deg, #e2be72 11.02%, #a57220 100%);  padding: 2rem;
+  border-radius: 1rem;
+  /* border: 2px solid transparent; */
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateX(-2rem);
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 2.5rem;
+  }
+}
+
+.card.animateIn {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.card:hover {
+  border-color: #000000;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+  color: #000000;
+  margin-bottom: 1.5rem;
+}
+
+.venue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .venue {
+    font-size: 1.5rem;
+  }
+}
+
+.address {
+  color: #333333;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .address {
+    font-size: 1rem;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #333333;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .detail {
+    font-size: 0.9375rem;
+  }
+}
+
+.detail svg {
+  color: #000000;
+  flex-shrink: 0;
+}
+
+.map {
+  height: 20rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateX(2rem);
+}
+
+@media (min-width: 768px) {
+  .map {
+    height: 28rem;
+  }
+}
+
+.map.animateIn {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.map:hover {
+  border-color: #000000;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}

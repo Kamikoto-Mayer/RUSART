@@ -1,0 +1,257 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to beige color scheme with #E4D39A as primary background */
+  --background: #e4d39a;
+  --foreground: #000000;
+  --card: #d4c38a;
+  --card-foreground: #000000;
+  --popover: #e4d39a;
+  --popover-foreground: #000000;
+  --primary: #e4d39a;
+  --primary-foreground: #000000;
+  --secondary: #d4c38a;
+  --secondary-foreground: #000000;
+  --muted: #c0b080;
+  --muted-foreground: #000000;
+  --accent: #f0f0f0;
+  --accent-foreground: #000000;
+  --destructive: #d4c38a;
+  --destructive-foreground: #000000;
+  --border: #c0b080;
+  --input: #d4c38a;
+  --ring: #000000;
+  --chart-1: #d4c38a;
+  --chart-2: #c0b080;
+  --chart-3: #b0a070;
+  --chart-4: #d4c38a;
+  --chart-5: #c0b080;
+  --radius: 0.625rem;
+  --sidebar: #e4d39a;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #d4c38a;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #d4c38a;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #c0b080;
+  --sidebar-ring: #000000;
+}
+
+.dark {
+  --background: #e4d39a;
+  --foreground: #f0f0f0;
+  --card: #5d5d5d;
+  --card-foreground: #f0f0f0;
+  --popover: #2f2f2f;
+  --popover-foreground: #f0f0f0;
+  --primary: #f0f0f0;
+  --primary-foreground: #2f2f2f;
+  --secondary: #5d5d5d;
+  --secondary-foreground: #f0f0f0;
+  --muted: #c0c0c0;
+  --muted-foreground: #c0c0c0;
+  --accent: #f0f0f0;
+  --accent-foreground: #2f2f2f;
+  --destructive: #5d5d5d;
+  --destructive-foreground: #f0f0f0;
+  --border: #5d5d5d;
+  --input: #5d5d5d;
+  --ring: #f0f0f0;
+  --chart-1: #5d5d5d;
+  --chart-2: #7d7d7d;
+  --chart-3: #9d9d9d;
+  --chart-4: #5d5d5d;
+  --chart-5: #7d7d7d;
+  --sidebar: #2f2f2f;
+  --sidebar-foreground: #f0f0f0;
+  --sidebar-primary: #5d5d5d;
+  --sidebar-primary-foreground: #f0f0f0;
+  --sidebar-accent: #5d5d5d;
+  --sidebar-accent-foreground: #f0f0f0;
+  --sidebar-border: #5d5d5d;
+  --sidebar-ring: #f0f0f0;
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Fixed animation visibility - added animate-in class that removes opacity */
+  .animate-in {
+    @apply opacity-100 translate-y-0 translate-x-0;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Removed glow animation */
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Removed animate-glow class */
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background-size: 1000px 100%;
+  }
+
+  .animate-slide-in-up {
+    animation: slideInUp 0.6s ease-out;
+  }
+
+  .animate-slide-in-down {
+    animation: slideInDown 0.6s ease-out;
+  }
+
+  .animate-fade-in-scale {
+    animation: fadeInScale 0.5s ease-out;
+  }
+
+  /* Added button animations */
+  @keyframes buttonPulse {
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(240, 240, 240, 0.7);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 10px rgba(240, 240, 240, 0);
+    }
+  }
+
+  @keyframes buttonShine {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  .animate-button-pulse {
+    animation: buttonPulse 2s ease-in-out infinite;
+  }
+
+  .animate-button-shine {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background-size: 200% 100%;
+    animation: buttonShine 3s ease-in-out infinite;
+  }
+
+  /* Updated h2 styles to use black text for beige background */
+  h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: 0.5px;
+  }
+
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 3rem;
+    }
+  }
+}

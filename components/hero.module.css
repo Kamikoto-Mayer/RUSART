@@ -1,0 +1,245 @@
+/* Hero Section Styles */
+.hero {
+  position: relative;
+  min-height: 24rem;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 100vh;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.float1 {
+  position: absolute;
+  top: 5rem;
+  right: 2.5rem;
+  width: 10rem;
+  height: 10rem;
+  background-color: rgba(107, 114, 128, 0.1);
+  border-radius: 9999px;
+  filter: blur(96px);
+  animation: float 6s ease-in-out infinite;
+}
+
+.float2 {
+  position: absolute;
+  bottom: 5rem;
+  left: 2.5rem;
+  width: 8rem;
+  height: 8rem;
+  background-color: rgba(107, 114, 128, 0.1);
+  border-radius: 9999px;
+  filter: blur(96px);
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding: 0 1rem;
+  }
+}
+
+.contentInner {
+  /* max-width: 42rem; */
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  /* Keeping white text for hero overlay */
+  color: white;
+  margin-bottom: 3rem;
+  line-height: 1.25;
+  transition: all 1s ease;
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3.1rem;
+  }
+}
+
+.title.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title.unloaded {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+
+.titleAccent {
+  font-size: 1.125rem;
+  background: linear-gradient(to right, #d1d5db, #f3f4f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (min-width: 640px) {
+  .titleAccent {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .titleAccent {
+    font-size: 3rem;
+  }
+}
+
+.date {
+  font-size: 1rem;
+  color: #d1d5db;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  transition: all 1s ease 0.2s;
+}
+
+@media (min-width: 768px) {
+  .date {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.date.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.date.unloaded {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+
+.description {
+  font-size: 0.875rem;
+  color: #e5e7eb;
+  margin-bottom: 120px;
+  /* max-width: 40rem; */
+  line-height: 1.5;
+  transition: all 1s ease 0.3s;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .description {
+    font-size: 1rem;
+    margin-bottom: 80px;
+  }
+}
+@media (min-width: 1024px) {
+  .description {
+	font-size: 1rem;
+	margin-bottom: 4rem;
+  }
+	
+}
+
+.description.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.description.unloaded {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+
+.button {
+  display: inline-block;
+  background: linear-gradient(135deg, #e2be72, #7c683f);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  box-shadow: 0 0 0 0 rgba(107, 114, 128, 0.5);
+  transition: all ease 0.4s;
+  font-size: 0.875rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+.button:hover {
+  opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(226, 190, 114, 0.3);
+  transform: scale(1.05);
+}
+
+/* .button.loaded {
+  opacity: 1;
+  transform: translateY(0);
+} */
+
+/* .button.unloaded {
+  opacity: 0;
+  transform: translateY(2.5rem);
+} */
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
