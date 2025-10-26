@@ -15,7 +15,7 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
-	  <Schedule />
+	  {/* <Schedule /> */}
 	  <Jury />
       <Benefits />
       {/* <Pricing /> */}
