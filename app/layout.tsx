@@ -8,9 +8,11 @@ const _geist = Geist({ subsets: ["latin", "cyrillic"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "АРТПРОСТРАНСТВО - Хореографический фестиваль",
+  title: "RUSART - Хореографический фестиваль",
   description: "Всероссийский хореографический фестиваль-конкурс",
-  generator: "v0.app",
+  icons: {
+	icon: "/favicon.ico",
+  }
 }
 
 export default function RootLayout({
