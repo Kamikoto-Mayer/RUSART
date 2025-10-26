@@ -8,7 +8,7 @@ export default function Contacts() {
         <div className={styles.contactCard}>
           <div className={styles.contactList}>
             <div className={styles.contactGroup}>
-              <h3>Елена Геращенко</h3>
+              <h3>Елена Георгиевна</h3>
               <p className={styles.contactText}><a href="tel:+79882456809">+7 (988) 245-68-09</a></p>
 			  <br />
 			  <h3>Ирина Владимировна</h3>

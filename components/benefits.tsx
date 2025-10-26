@@ -68,7 +68,7 @@ export default function Benefits() {
         <div className={styles.header}>
           <h2 className={styles.title}>Преимущества участия</h2>
           <p className={styles.description}>
-            Получите доступ к сетевым мероприятиям, мастер-классам и экспертным советам
+            Получите доступ к мероприятиям, мастер-классам и экспертным советам
           </p>
         </div>
 
