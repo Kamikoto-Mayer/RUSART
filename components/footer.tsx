@@ -26,8 +26,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/awards" className={styles.link}>
+                  Награды
+                </Link>
+              </li>
+              <li>
                 <Link href="/jury" className={styles.link}>
                   Жюри
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className={styles.link}>
+                  Цены
                 </Link>
               </li>
             </ul>

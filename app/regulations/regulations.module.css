@@ -70,6 +70,20 @@
   }
 }
 
+.sectionTitle2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.3px;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle2 {
+    font-size: 1.25rem;
+  }
+}
+
 .text {
   color: #333333;
   font-size: 0.9375rem;
@@ -117,4 +131,36 @@
   color: #000000;
   font-weight: 700;
   font-size: 1.25rem;
+}
+
+/* Стили для таблиц */
+.table {
+  width: 100%;
+  border-collapse: collapse; /* убираем двойные границы */
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc; /* светлая граница */
+  vertical-align: top;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9; /* зебра для удобства чтения */
+}
+
+.table tr:hover {
+  background-color: #f0e6c8; /* легкий hover, чтобы совпадало с общей палитрой */
+}
+
+@media (max-width: 767px) {
+  .table {
+    font-size: 0.9rem;
+  }
+
+  .table td {
+    padding: 0.5rem;
+  }
 }

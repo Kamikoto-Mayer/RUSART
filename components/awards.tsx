@@ -1,46 +1,53 @@
 "use client"
 
-import type React from "react"
-
-import { useEffect, useRef } from "react"
-import { Trophy, Award, Medal, Star } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 import styles from "./awards.module.css"
 
-interface AwardCategory {
-  icon: React.ReactNode
-  title: string
-  prize: string
+interface Award {
   description: string
 }
 
-const awardCategories: AwardCategory[] = [
+const awards: Award[] = [
   {
-    icon: <Trophy className="w-12 h-12" />,
-    title: "Гран-при",
-    prize: "100 000 ₽",
-    description: "Главная награда фестиваля за выдающееся выступление",
+    description: "Специальный приз «Абсолютный победитель» (определяется членами жюри в суммарном значении награжденных танцевальных номеров дипломами «Гран-При» и «Лауреат 1 степени»)",
   },
   {
-    icon: <Award className="w-12 h-12" />,
-    title: "Лучшая хореография",
-    prize: "50 000 ₽",
-    description: "За инновационную и впечатляющую постановку",
+    description: "Специальный приз «Национальное достояние» за сохранение национальных и культурных традиций (диплом, кубок и денежное вознаграждение в размере 10.000 руб)",
   },
   {
-    icon: <Medal className="w-12 h-12" />,
-    title: "Приз зрительских симпатий",
-    prize: "30 000 ₽",
-    description: "Выбор публики и онлайн-голосования",
+    description: "Специальный диплом за: «Лучшее воплощение сценического образа»; «Сценическое оформление хореографического произведения»; «Исполнительское мастерство и артистизм»!",
   },
   {
-    icon: <Star className="w-12 h-12" />,
-    title: "Лучший сольный номер",
-    prize: "25 000 ₽",
-    description: "За выдающееся индивидуальное мастерство",
+    description: "Гран-При в каждой номинации одной возрастной категории (диплом, кубок);",
+  },
+  {
+    description: "Кубок каждому коллективу и участникам в номинации соло, дуэт, трио (за номер)",
+  },
+  {
+    description: "Благодарственные письма «За личный вклад в развитие и популяризацию (хореографического, театрального) искусства среди детей и молодежи» всем руководителям коллективов.",
+  },
+  {
+    description: "Вручение экспертами специальных дипломов «Призвание» за лучшие балетмейстерские и режиссерские работы!",
+  },
+  {
+    description: "Дипломы ЛАУРЕАТА 1, 2, 3, степени (диплом, кубок)",
+  },
+  {
+    description: "Дипломы Дипломанта 1, 2, 3, степени (диплом)",
+  },
+  {
+    description: "Дипломы Участника (диплом)",
+  },
+  {
+    description: "Значок/медаль каждому участнику",
+  },
+  {
+    description: "Сертификаты участникам мастер-классов",
   },
 ]
 
 export default function Awards() {
+  const [visibleItems, setVisibleItems] = useState<boolean[]>(new Array(awards.length).fill(false))
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -48,45 +55,47 @@ export default function Awards() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(styles.animateIn)
+            const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
+            setVisibleItems((prev) => {
+              const newVisible = [...prev]
+              newVisible[index] = true
+              return newVisible
+            })
           }
         })
       },
       { threshold: 0.1 },
     )
 
-    const items = containerRef.current?.querySelectorAll(`.${styles.item}`)
+    const items = containerRef.current?.querySelectorAll("[data-index]")
     items?.forEach((item) => observer.observe(item))
 
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section className={styles.section}>
-      <div className={styles.wrapper}>
-        <div className={styles.hero}>
-          <h2 className={styles.mainTitle}>Награды и призы</h2>
-          <p className={styles.mainDescription}>Общий призовой фонд фестиваля составляет более 200 000 рублей</p>
+    <section className={styles.awards}>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h2 className={styles.title}>Преимущества участия</h2>
+          <p className={styles.description}>
+            Получите доступ к мероприятиям, мастер-классам и экспертным советам
+          </p>
         </div>
 
-        <div ref={containerRef} className={styles.showcase}>
-          {awardCategories.map((award, index) => (
-            <div key={index} className={styles.item} style={{ transitionDelay: `${index * 150}ms` }}>
-              <div className={styles.iconWrapper}>{award.icon}</div>
-              <div className={styles.content}>
-                <h3 className={styles.categoryTitle}>{award.title}</h3>
-                <div className={styles.prize}>{award.prize}</div>
-                <p className={styles.categoryDescription}>{award.description}</p>
-              </div>
-              <div className={styles.shine}></div>
+        <div ref={containerRef} className={styles.grid}>
+          {awards.map((award, index) => (
+            <div
+              key={index}
+              data-index={index}
+              className={`${styles.card} ${visibleItems[index] ? styles.visible : ""}`}
+              style={{
+                transitionDelay: `${index * 100}ms`,
+              }}
+            >
+              <p className={styles.cardDescription}>{award.description}</p>
             </div>
           ))}
-        </div>
-
-        <div className={styles.footer}>
-          <p className={styles.footerText}>
-            Все победители получают дипломы, кубки и возможность выступить на гала-концерте
-          </p>
         </div>
       </div>
     </section>

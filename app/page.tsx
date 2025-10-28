@@ -19,7 +19,7 @@ export default function Home() {
 	  <Jury />
       <Benefits />
       {/* <Pricing /> */}
-      {/*<Awards />*/}
+      {/* <Awards /> */}
       <Location />
       {/* </CHANGE> */}
       <Footer />

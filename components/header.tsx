@@ -47,6 +47,9 @@ export default function Header() {
             <Link href="/pricing" className={styles.navLink}>
               Цены
             </Link>
+			<Link href="/awards" className={styles.navLink}>
+			  Награды
+			</Link>
             <Link href="/jury" className={styles.navLink}>
               Жюри
             </Link>
@@ -83,6 +86,9 @@ export default function Header() {
               <Link href="/pricing" className={styles.mobileMenuLink} onClick={() => setIsOpen(false)}>
                 Цены
               </Link>
+			  <Link href="/awards" className={styles.mobileMenuLink} onClick={() => setIsOpen(false)}>
+				Награды
+			  </Link>
               <Link href="/jury" className={styles.mobileMenuLink} onClick={() => setIsOpen(false)}>
                 Жюри
               </Link>

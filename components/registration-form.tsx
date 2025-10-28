@@ -23,6 +23,8 @@ interface FormData {
   exactParticipantsCount: string
   competitionNumberName: string
   competitionNumberDuration: string
+  AccountMaks: string
+  AccountTG: string
 }
 
 const initialFormData: FormData = {
@@ -42,6 +44,8 @@ const initialFormData: FormData = {
   exactParticipantsCount: "",
   competitionNumberName: "",
   competitionNumberDuration: "",
+  AccountTG: "",
+  AccountMaks: "",
 }
 
 export default function RegistrationForm() {
@@ -75,6 +79,8 @@ export default function RegistrationForm() {
       "exactParticipantsCount",
       "competitionNumberName",
       "competitionNumberDuration",
+	  "AccountMaks",
+	  "AccountTG"
     ]
 
     for (const field of requiredFields) {
@@ -129,7 +135,7 @@ export default function RegistrationForm() {
         description: "Ваша заявка успешно отправлена",
       })
 
-      handleClear()
+      setTimeout(() => handleClear(), 2000)
     } catch (error) {
       toast({
         title: "Ошибка",
@@ -147,7 +153,7 @@ export default function RegistrationForm() {
         <div className={styles.header}>
           <h1 className={styles.title}>Регистрация на</h1>
 		  <h1 className={styles.title}>фестиваль</h1>
-          <p className={styles.subtitle}>Заполните форму, чтобы принять участие в АРТ Грани</p>
+          <p className={styles.subtitle}>Регистрация на фестиваль-конкурс "ART Грани" 16.11.2025г. Краснодар</p>
         </div>
 		<div className={styles.wrapper}>
 			<form onSubmit={handleSubmit} className={styles.form}>
@@ -211,11 +217,30 @@ export default function RegistrationForm() {
 				required
 				>
 				<option value="">Выберите направление</option>
-				<option value="vocal">Вокал</option>
-				<option value="choreography">Хореография</option>
-				<option value="instrumental">Инструментальное исполнительство</option>
-				<option value="theater">Театральное искусство</option>
-				<option value="original">Оригинальный жанр</option>
+				<option value="Детский танец (для возрастной категории до 9 лет)">Детский танец (для возрастной категории до 9 лет)</option>
+				<option value="Инклюзивный танец">Инклюзивный танец</option>
+				<option value="Классический танец (вариации из балетов, танцы на основе классических элементов)">Классический танец (вариации из балетов, танцы на основе классических элементов)</option>
+				<option value="Народный танец (этнический, народно-сценический, характерный)">Народный танец (этнический, народно-сценический, характерный)</option>
+				<option value="Стилизованный танец (исполнение народных и классических танцев в современной обработке)">Стилизованный танец (исполнение народных и классических танцев в современной обработке)</option>
+				<option value="Jazz (COOL- jazz, HOT- jazz, WEAST-COAST или Street jazz, Классический jazz, Blues, Лирический jazz, Broadway-jazz, Afro-jazz, Flash-jazz, Soul-jazz, Swing)">Jazz (COOL- jazz, HOT- jazz, WEAST-COAST или Street jazz, Классический jazz, Blues, Лирический jazz, Broadway-jazz, Afro-jazz, Flash-jazz, Soul-jazz, Swing)</option>
+				<option value="Современный танец (Modern, Contemporary dance)">Современный танец (Modern, Contemporary dance)</option>
+				<option value="Эстрадный танец (традиционные эстрадные характерные танцы, диско, смешанный стиль)">Эстрадный танец (традиционные эстрадные характерные танцы, диско, смешанный стиль)</option>
+				<option value="Бально-спортивный танец">Бально-спортивный танец</option>
+				<option value="Танцевальное шоу">Танцевальное шоу</option>
+				<option value="Спортивный танец (rock and roll, cheerleading, художественная гимнастика, акробатическое шоу)">Спортивный танец (rock and roll, cheerleading, художественная гимнастика, акробатическое шоу)</option>
+				<option value="Уличный танец (breaking, hip-hop, dancehall, vogue, jazz funk и др. уличные направления)">Уличный танец (breaking, hip-hop, dancehall, vogue, jazz funk и др. уличные направления)</option>
+				<option value="Cover Dance">Cover Dance</option>
+				<option value="All styles">All styles</option>
+				<option value="Драматический театр">Драматический театр</option>
+				<option value="Малые театральные формы">Малые театральные формы</option>
+				<option value="Театр мимики и жеста">Театр мимики и жеста</option>
+				<option value="Музыкальный театр">Музыкальный театр</option>
+				<option value="Кукольный театр">Кукольный театр</option>
+				<option value="Мюзикл">Мюзикл</option>
+				<option value="Театр мод">Театр мод</option>
+				<option value="Современный театр">Современный театр</option>
+				<option value="Оригинальный жанр">Оригинальный жанр</option>
+				<option value="Художественное слово">Художественное слово</option>
 				</select>
 			</div>
 
@@ -231,10 +256,8 @@ export default function RegistrationForm() {
 				className={styles.select}
 				>
 				<option value="">Выберите номинацию</option>
-				<option value="solo">Соло</option>
-				<option value="duet">Дуэт</option>
-				<option value="ensemble">Ансамбль</option>
-				<option value="group">Группа</option>
+				<option value="Хореографическое">Хореографическая</option>
+				<option value="Театральное">Театральная</option>
 				</select>
 			</div>
 
@@ -250,10 +273,10 @@ export default function RegistrationForm() {
 				className={styles.select}
 				>
 				<option value="">Выберите уровень</option>
-				<option value="beginner">Начинающий</option>
-				<option value="intermediate">Средний</option>
-				<option value="advanced">Продвинутый</option>
-				<option value="professional">Профессиональный</option>
+				<option value="Начинающий">Начинающий</option>
+				<option value="Средний">Средний</option>
+				<option value="Продвинутый">Продвинутый</option>
+				<option value="Профессиональный">Профессиональный</option>
 				</select>
 			</div>
 
@@ -270,11 +293,15 @@ export default function RegistrationForm() {
 				required
 				>
 				<option value="">Выберите возраст</option>
-				<option value="5-7">5-7 лет</option>
-				<option value="8-10">8-10 лет</option>
-				<option value="11-13">11-13 лет</option>
-				<option value="14-17">14-17 лет</option>
-				<option value="18+">18+ лет</option>
+				<option value="Первые шаги">Первые шаги</option>
+				<option value="4-6 лет">4-6 лет</option>
+				<option value="7-9 лет">7-9 лет</option>
+				<option value="10-12 лет">10-12 лет</option>
+				<option value="13-15 лет">13-15 лет</option>
+				<option value="16-19 лет">16-19 лет</option>
+				<option value="20-25 лет">20-25 лет</option>
+				<option value="старшая (от 25 лет)">старшая (от 25 лет)</option>
+				<option value="смешанная группа">смешанная группа</option>
 				</select>
 			</div>
 
@@ -423,10 +450,41 @@ export default function RegistrationForm() {
 				/>
 			</div>
 
-			{/* Note */}
-			<div className={styles.note}>
-				Ф.И. участников для именного диплома (отправляется в электронном формате на почту)
+			{/* Competition Number Duration */}
+			<div className={styles.fieldGroup}>
+				<label htmlFor="AccountTG" className={styles.label}>
+				Аккаунт Telegram *
+				</label>
+				<input
+				id="AccountTG"
+				type="text"
+				placeholder="@username"
+				value={formData.AccountTG}
+				onChange={(e) => handleInputChange("AccountTG", e.target.value)}
+				className={styles.input}
+				required
+				/>
 			</div>
+
+			{/* Competition Number Duration */}
+			<div className={styles.fieldGroup}>
+				<label htmlFor="AccountMaks" className={styles.label}>
+				Аккаунт Maks
+				</label>
+				<input
+				id="AccountMaks"
+				type="text"
+				placeholder="@username"
+				value={formData.AccountMaks}
+				onChange={(e) => handleInputChange("AccountMaks", e.target.value)}
+				className={styles.input}
+				/>
+			</div>
+
+			{/* Note */}
+			{/* <div className={styles.note}>
+				Регистрация на фестиваль-конкурс "ART Грани" 16.11.2025г. Краснодар
+			</div> */}
 
 			{/* Buttons */}
 			<div className={styles.buttonGroup}>

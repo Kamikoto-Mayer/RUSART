@@ -33,6 +33,8 @@ export async function POST(request: Request) {
             <p><strong>Точное количество участников:</strong> ${formData.exactParticipantsCount}</p>
             <p><strong>Название номера:</strong> ${formData.competitionNumberName}</p>
             <p><strong>Хронометраж:</strong> ${formData.competitionNumberDuration}</p>
+			<p><strong>AccountMaks:</strong> ${formData.AccountMaks}</p>
+			<p><strong>AccountTG:</strong> ${formData.AccountTG}</p>
           `,
       }),
     })
@@ -70,6 +72,8 @@ export async function POST(request: Request) {
               formData.exactParticipantsCount,
               formData.competitionNumberName,
               formData.competitionNumberDuration,
+			  formData.AccountMaks,
+			  formData.AccountTG
             ],
           ],
         }),

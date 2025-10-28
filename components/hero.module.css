@@ -107,7 +107,7 @@
 }
 
 .titleAccent {
-  font-size: 1.125rem;
+  font-size: 2.5rem;
   background: linear-gradient(to right, #d1d5db, #f3f4f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -116,13 +116,13 @@
 
 @media (min-width: 640px) {
   .titleAccent {
-    font-size: 1.5rem;
+    font-size: 3rem;
   }
 }
 
 @media (min-width: 768px) {
   .titleAccent {
-    font-size: 3rem;
+    font-size: 3.7rem;
   }
 }
 
