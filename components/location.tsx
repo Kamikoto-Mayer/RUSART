@@ -48,9 +48,9 @@ export default function Location() {
                 <circle cx="12" cy="10" r="3" />
               </svg>
             </div>
-            <h3 className={styles.venue}>Концертный зал "АРТ Грани"</h3>
+            <h3 className={styles.venue}>Концертный зал "ART Грани"</h3>
             <p className={styles.address}><a href="https://yandex.ru/maps/35/krasnodar/house/pashkovskaya_ulitsa_149/Z0EYfw9mTkEHQFpvfXxycXtrbQ==/?ll=38.986740%2C45.030789&z=17.12" target="_blank" rel="noopener noreferrer">
-					ул. Пашковская, 149
+					ул. Пашковская, 146
 					<br />
 					Краснодар, Россия
 				</a>
@@ -101,7 +101,7 @@ export default function Location() {
               style={{ border: 0, borderRadius: "1rem" }}
               allowFullScreen
               loading="lazy"
-              title="Карта: Пашковская улица 149"
+              title="Карта: Пашковская улица 146"
             />
           </div>
         </div>

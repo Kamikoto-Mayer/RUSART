@@ -23,7 +23,7 @@ interface FormData {
   exactParticipantsCount: string
   competitionNumberName: string
   competitionNumberDuration: string
-  AccountMaks: string
+  AccountMax: string
   AccountTG: string
 }
 
@@ -45,7 +45,7 @@ const initialFormData: FormData = {
   competitionNumberName: "",
   competitionNumberDuration: "",
   AccountTG: "",
-  AccountMaks: "",
+  AccountMax: "",
 }
 
 export default function RegistrationForm() {
@@ -79,7 +79,7 @@ export default function RegistrationForm() {
       "exactParticipantsCount",
       "competitionNumberName",
       "competitionNumberDuration",
-	  "AccountMaks",
+	  "AccountMax",
 	  "AccountTG"
     ]
 
@@ -217,6 +217,23 @@ export default function RegistrationForm() {
 				required
 				>
 				<option value="">Выберите направление</option>
+				<option value="Хореографическое">Хореографическая</option>
+				<option value="Театральное">Театральная</option>
+				</select>
+			</div>
+
+			{/* Nomination */}
+			<div className={styles.fieldGroup}>
+				<label htmlFor="nomination" className={styles.label}>
+				Номинация
+				</label>
+				<select
+				id="nomination"
+				value={formData.nomination}
+				onChange={(e) => handleInputChange("nomination", e.target.value)}
+				className={styles.select}
+				>
+				<option value="">Выберите номинацию</option>
 				<option value="Детский танец (для возрастной категории до 9 лет)">Детский танец (для возрастной категории до 9 лет)</option>
 				<option value="Инклюзивный танец">Инклюзивный танец</option>
 				<option value="Классический танец (вариации из балетов, танцы на основе классических элементов)">Классический танец (вариации из балетов, танцы на основе классических элементов)</option>
@@ -244,23 +261,6 @@ export default function RegistrationForm() {
 				</select>
 			</div>
 
-			{/* Nomination */}
-			<div className={styles.fieldGroup}>
-				<label htmlFor="nomination" className={styles.label}>
-				Номинация
-				</label>
-				<select
-				id="nomination"
-				value={formData.nomination}
-				onChange={(e) => handleInputChange("nomination", e.target.value)}
-				className={styles.select}
-				>
-				<option value="">Выберите номинацию</option>
-				<option value="Хореографическое">Хореографическая</option>
-				<option value="Театральное">Театральная</option>
-				</select>
-			</div>
-
 			{/* Creative Level */}
 			<div className={styles.fieldGroup}>
 				<label htmlFor="creativeLevel" className={styles.label}>
@@ -275,8 +275,8 @@ export default function RegistrationForm() {
 				<option value="">Выберите уровень</option>
 				<option value="Начинающий">Начинающий</option>
 				<option value="Средний">Средний</option>
-				<option value="Продвинутый">Продвинутый</option>
 				<option value="Профессиональный">Профессиональный</option>
+				<option value="Дебют (номер выставляется в первый раз)">Дебют (номер выставляется в первый раз)</option>
 				</select>
 			</div>
 
@@ -468,15 +468,15 @@ export default function RegistrationForm() {
 
 			{/* Competition Number Duration */}
 			<div className={styles.fieldGroup}>
-				<label htmlFor="AccountMaks" className={styles.label}>
+				<label htmlFor="AccountMax" className={styles.label}>
 				Аккаунт Maks
 				</label>
 				<input
-				id="AccountMaks"
+				id="AccountMax"
 				type="text"
 				placeholder="@username"
-				value={formData.AccountMaks}
-				onChange={(e) => handleInputChange("AccountMaks", e.target.value)}
+				value={formData.AccountMax}
+				onChange={(e) => handleInputChange("AccountMax", e.target.value)}
 				className={styles.input}
 				/>
 			</div>
