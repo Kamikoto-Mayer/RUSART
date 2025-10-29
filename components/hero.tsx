@@ -15,7 +15,7 @@ export default function Hero() {
     <section
       className={styles.hero}
       style={{
-        backgroundImage: "url(/header_bg.jpg)",
+        backgroundImage: "url(/header_bg.webp)",
       }}
     >
       <div className={styles.overlay}></div>

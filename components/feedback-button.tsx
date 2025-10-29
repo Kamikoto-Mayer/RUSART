@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 import { useState } from "react"
 import { Mail } from "lucide-react"
 import styles from "./feedback-button.module.css"
@@ -9,15 +9,36 @@ export default function FeedbackButton() {
   const [isOpen, setIsOpen] = useState(false)
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => {
-      setIsOpen(false)
-      setSubmitted(false)
-      setFormData({ name: "", email: "", message: "" })
-    }, 2000)
+    setIsSubmitting(true)
+    setError(null)
+
+    try {
+      const res = await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await res.json()
+      if (!res.ok) throw new Error(data?.error || "Ошибка отправки")
+
+      setSubmitted(true)
+      // очищаем форму через 1.5s и закрываем модалку
+      setTimeout(() => {
+        setIsOpen(false)
+        setSubmitted(false)
+        setFormData({ name: "", email: "", message: "" })
+      }, 1500)
+    } catch (err: any) {
+      setError(err?.message || "Не удалось отправить сообщение")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -29,9 +50,9 @@ export default function FeedbackButton() {
       {isOpen && <div className={styles.backdrop} onClick={() => setIsOpen(false)} />}
 
       {isOpen && (
-        <div className={styles.modal}>
+        <div className={styles.modal} role="dialog" aria-modal="true" aria-labelledby="feedback-title">
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <h3 className={styles.modalTitle}>Обратная связь</h3>
+            <h3 id="feedback-title" className={styles.modalTitle}>Обратная связь</h3>
 
             {submitted ? (
               <div className={styles.success}>
@@ -50,8 +71,10 @@ export default function FeedbackButton() {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className={styles.formInput}
                     placeholder="Ваше имя"
+                    disabled={isSubmitting}
                   />
                 </div>
+
                 <div className={styles.formGroup}>
                   <label className={styles.formLabel}>Email</label>
                   <input
@@ -61,8 +84,10 @@ export default function FeedbackButton() {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className={styles.formInput}
                     placeholder="your@email.com"
+                    disabled={isSubmitting}
                   />
                 </div>
+
                 <div className={styles.formGroup}>
                   <label className={styles.formLabel}>Сообщение</label>
                   <textarea
@@ -72,15 +97,19 @@ export default function FeedbackButton() {
                     className={styles.formTextarea}
                     rows={4}
                     placeholder="Ваше сообщение..."
+                    disabled={isSubmitting}
                   />
                 </div>
-                <button type="submit" className={styles.submitBtn}>
-                  Отправить
+
+                {error && <p className={styles.error}>{error}</p>}
+
+                <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+                  {isSubmitting ? "Отправка..." : "Отправить"}
                 </button>
               </form>
             )}
 
-            <button onClick={() => setIsOpen(false)} className={styles.closeBtn}>
+            <button onClick={() => setIsOpen(false)} className={styles.closeBtn} aria-label="Закрыть">
               ✕
             </button>
           </div>

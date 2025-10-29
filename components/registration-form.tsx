@@ -25,6 +25,7 @@ interface FormData {
   competitionNumberDuration: string
   AccountMax: string
   AccountTG: string
+  privacyAgree: boolean
 }
 
 const initialFormData: FormData = {
@@ -46,6 +47,7 @@ const initialFormData: FormData = {
   competitionNumberDuration: "",
   AccountTG: "",
   AccountMax: "",
+  privacyAgree: false
 }
 
 export default function RegistrationForm() {
@@ -53,7 +55,7 @@ export default function RegistrationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { toast } = useToast()
 
-  const handleInputChange = (field: keyof FormData, value: string) => {
+  const handleInputChange = (field: keyof FormData, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
@@ -104,6 +106,14 @@ export default function RegistrationForm() {
       })
       return false
     }
+	if (!formData.privacyAgree) {
+		toast({
+			title: "Необходимо согласие",
+			description: "Пожалуйста, примите Политику конфиденциальности, отметив соответствующее поле.",
+			variant: "destructive",
+		})
+		return false
+  	}
 
     return true
   }
@@ -152,7 +162,7 @@ export default function RegistrationForm() {
       <div className={styles.formContainer}>
         <div className={styles.header}>
           <h1 className={styles.title}>Регистрация на</h1>
-		  <h1 className={styles.title}>фестиваль</h1>
+		  <h1 className={styles.title}>фестиваль-конкурс</h1>
           <p className={styles.subtitle}>Регистрация на фестиваль-конкурс "ART Грани" 16.11.2025г. Краснодар</p>
         </div>
 		<div className={styles.wrapper}>
@@ -196,7 +206,7 @@ export default function RegistrationForm() {
 				<input
 				id="groupName"
 				type="text"
-				placeholder="Название вашей группы"
+				placeholder="Название вашего коллектива"
 				value={formData.groupName}
 				onChange={(e) => handleInputChange("groupName", e.target.value)}
 				className={styles.input}
@@ -217,8 +227,8 @@ export default function RegistrationForm() {
 				required
 				>
 				<option value="">Выберите направление</option>
-				<option value="Хореографическое">Хореографическая</option>
-				<option value="Театральное">Театральная</option>
+				<option value="Хореографическое">Хореографическое</option>
+				<option value="Театральное">Театральное</option>
 				</select>
 			</div>
 
@@ -276,7 +286,6 @@ export default function RegistrationForm() {
 				<option value="Начинающий">Начинающий</option>
 				<option value="Средний">Средний</option>
 				<option value="Профессиональный">Профессиональный</option>
-				<option value="Дебют (номер выставляется в первый раз)">Дебют (номер выставляется в первый раз)</option>
 				</select>
 			</div>
 
@@ -469,7 +478,7 @@ export default function RegistrationForm() {
 			{/* Competition Number Duration */}
 			<div className={styles.fieldGroup}>
 				<label htmlFor="AccountMax" className={styles.label}>
-				Аккаунт Maks
+				Аккаунт Max
 				</label>
 				<input
 				id="AccountMax"
@@ -487,8 +496,23 @@ export default function RegistrationForm() {
 			</div> */}
 
 			{/* Buttons */}
+			{/* Privacy policy agreement */}
+			<div className={styles.fieldGroup}>
+				<label className={styles.checkboxLabel}>
+					<input
+					type="checkbox"
+					checked={formData.privacyAgree}
+					onChange={(e) => handleInputChange("privacyAgree", e.target.checked)}
+					className={styles.checkbox}
+					required
+					/>
+					<span>
+					Я принимаю <strong><a href="/privacy.pdf" target="_blank" rel="noopener noreferrer">Политику конфиденциальности</a></strong> и даю согласие на обработку персональных данных.
+					</span>
+				</label>
+			</div>
 			<div className={styles.buttonGroup}>
-				<button type="submit" disabled={isSubmitting} className={styles.submitButton}>
+				<button type="submit" disabled={isSubmitting || !formData.privacyAgree} className={styles.submitButton}>
 				{isSubmitting ? "Отправка..." : "Отправить заявку"}
 				</button>
 				<button type="button" onClick={handleClear} className={styles.clearButton}>

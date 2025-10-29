@@ -46,7 +46,7 @@ export default function Footer() {
           <div>
             <h3 className={styles.sectionTitle}>Контакты</h3>
             <p className={styles.contactItem}>Елена Георгиевна</p>
-            <p className={styles.contactItem}><a href="tel:+79882456809">+7 (988) 245-68-09</a></p>
+            <p className={styles.contactItem}><a href="tel:+79882456809">+7 (988) 240-68-09</a></p>
             <p className={styles.contactItem}>Ирина Владимировна</p>
 			<p className={styles.contactItem}><a href="tel:+79183306852">+7 (918) 330-68-52</a></p>
           </div>

@@ -8,67 +8,67 @@ export default function Jury() {
   const juryMembers = [
     {
       name: "Фото 1",
-      image: "/gallary/gallary1.jpeg",
+      image: "/gallary/gallary1.webp",
     },
     {
       name: "Фото 2",
-      image: "/gallary/gallary2.jpeg",
+      image: "/gallary/gallary2.webp",
 	},
     {
       name: "Фото 3",
-      image: "/gallary/gallary3.jpeg",
+      image: "/gallary/gallary3.webp",
     },
 	{
       name: "Фото 4",
-      image: "/gallary/gallary4.jpeg",
+      image: "/gallary/gallary4.webp",
     },
     {
 	  name: "Фото 5",
-	  image: "/gallary/gallary5.jpeg",
+	  image: "/gallary/gallary5.webp",
 	},
 	{
 	  name: "Фото 6",
-	  image: "/gallary/gallary6.jpeg",
+	  image: "/gallary/gallary6.webp",
 	},
 	{
 	  name: "Фото 7",
-	  image: "/gallary/gallary7.jpeg",
+	  image: "/gallary/gallary7.webp",
 	},
 	{
 	  name: "Фото 8",
-	  image: "/gallary/gallary8.jpeg",
+	  image: "/gallary/gallary8.webp",
 	},
 	{
 	  name: "Фото 9",
-	  image: "/gallary/gallary9.jpeg",
+	  image: "/gallary/gallary9.webp",
 	},
 	{
 	  name: "Фото 10",
-	  image: "/gallary/gallary10.jpeg",
+	  image: "/gallary/gallary10.webp",
 	},
 	{
 	  name: "Фото 11",
-	  image: "/gallary/gallary11.jpeg",
+	  image: "/gallary/gallary11.webp",
 	},
 	{
 	  name: "Фото 12",
-	  image: "/gallary/gallary12.jpeg",
+	  image: "/gallary/gallary12.webp",
 	},
 	{
 	  name: "Фото 13",
-	  image: "/gallary/gallary13.jpeg",
+	  image: "/gallary/gallary13.webp",
 	},
 	{
 	  name: "Фото 14",
-	  image: "/gallary/gallary14.jpeg",
+	  image: "/gallary/gallary14.webp",
 	},
 	{
 	  name: "Фото 15",
-	  image: "/gallary/gallary15.jpeg",
+	  image: "/gallary/gallary15.webp",
 	},
 	{
 	  name: "Фото 16",
-	  image: "/gallary/gallary16.jpeg",
+	  image: "/gallary/gallary16.webp",
 	}
   ]
 

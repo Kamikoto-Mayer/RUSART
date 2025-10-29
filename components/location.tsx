@@ -49,7 +49,7 @@ export default function Location() {
               </svg>
             </div>
             <h3 className={styles.venue}>Концертный зал "ART Грани"</h3>
-            <p className={styles.address}><a href="https://yandex.ru/maps/35/krasnodar/house/pashkovskaya_ulitsa_149/Z0EYfw9mTkEHQFpvfXxycXtrbQ==/?ll=38.986740%2C45.030789&z=17.12" target="_blank" rel="noopener noreferrer">
+            <p className={styles.address}><a href="https://yandex.ru/maps/-/CLfLMU~7" target="_blank" rel="noopener noreferrer">
 					ул. Пашковская, 146
 					<br />
 					Краснодар, Россия
@@ -70,7 +70,7 @@ export default function Location() {
                 >
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <span><a href="tel:+79882456809">+7 (988) 245-68-09</a></span>
+                <span><a href="tel:+79882456809">+7 (988) 240-68-09</a></span>
               </div>
               <div className={styles.detail}>
                 <svg
@@ -94,8 +94,7 @@ export default function Location() {
 
           <div className={styles.map}>
             <iframe
-            //   src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab65130e20691908ff340c4b69f895c593c615762064c4d66ef160f7796db9ccd&amp;source=constructor"
-			  src="https://yandex.ru/map-widget/v1/?ll=38.986740%2C45.030789&mode=whatshere&whatshere%5Bpoint%5D=38.986740%2C45.030789&whatshere%5Bzoom%5D=17&z=17"
+			  src="https://yandex.ru/map-widget/v1/?ll=38.985491%2C45.030458&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjM3NjIyNBJG0KDQvtGB0YHQuNGPLCDQmtGA0LDRgdC90L7QtNCw0YAsINCf0LDRiNC60L7QstGB0LrQsNGPINGD0LvQuNGG0LAsIDE0NiIKDSXxG0IVMR80Qg%2C%2C&z=17.12"
               width="100%"
               height="100%"
               style={{ border: 0, borderRadius: "1rem" }}
@@ -109,3 +108,5 @@ export default function Location() {
     </section>
   )
 }
+
+{/* <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/35/krasnodar/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Краснодар</a><a href="https://yandex.ru/maps/35/krasnodar/house/pashkovskaya_ulitsa_146/Z0EYfw9lTUwGQFpvfXxycXhmYw==/?ll=38.985491%2C45.030458&utm_medium=mapframe&utm_source=maps&z=17.12" style="color:#eee;font-size:12px;position:absolute;top:14px;">Пашковская улица, 146 — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=38.985491%2C45.030458&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjM3NjIyNBJG0KDQvtGB0YHQuNGPLCDQmtGA0LDRgdC90L7QtNCw0YAsINCf0LDRiNC60L7QstGB0LrQsNGPINGD0LvQuNGG0LAsIDE0NiIKDSXxG0IVMR80Qg%2C%2C&z=17.12" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div> */}

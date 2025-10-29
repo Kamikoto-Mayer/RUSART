@@ -143,3 +143,32 @@
   color: #5d4a37;
   margin-top: 1rem;
 }
+
+/* Checkbox row */
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: #111;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: #c19b5a; /* любой цвет акцента */
+  /* border: 2px solid #000;
+  border-radius: 4px; */
+  cursor: pointer;
+}
+
+.checkboxLabel a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.checkboxLabel a:hover {
+  opacity: 0.85;
+}

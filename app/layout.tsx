@@ -8,8 +8,8 @@ const _geist = Geist({ subsets: ["latin", "cyrillic"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "RUSART - Хореографический фестиваль",
-  description: "Всероссийский хореографический фестиваль-конкурс",
+  title: "RUSART - Всероссийский фестиваль-конкурс искусств",
+  description: 'Всероссийский фестиваль-конкурс искусств "АRT ГРАНИ"',
   icons: {
 	icon: "/favicon.ico",
   }

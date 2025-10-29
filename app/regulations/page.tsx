@@ -373,8 +373,8 @@ export default function RegulationsPage() {
 					<li>Электронная почта: <strong><a href="mailto:rusart25@list.ru">rusart25@list.ru</a></strong></li>
 					<li>Справки: 
 					<ul className={styles.list}>
-						<li><strong><a href="tel:8-918-330-6852">8-918-330-6852</a></strong> – Ирина Владимировна</li>
-						<li><strong><a href="tel:8-918-330-6852">8-918-330-6852</a></strong> – Ирина Владимировна</li>
+						<li><strong><a href="tel:+79183306852">+7 (918) 330-68-52</a></strong> – Ирина Владимировна</li>
+						<li><strong><a href="tel:+79882456809">+7 (988) 245-68-09</a></strong> – Елена Георгиевна</li>
 					</ul>
 					</li>
 				</ul>
