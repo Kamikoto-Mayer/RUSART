@@ -19,7 +19,7 @@ GOOGLE_SHEET_ID=your_google_sheet_id
    - Добавьте его в `.env.local`
 
 3. Для Google Sheets:
-   - Создайте проект в [Google Cloud Console](https://console.cloud.google.com)
+   - Создайте проект в [Google Cloud Console](https://console.cloud.google.com) RUSARTtest
    - Включите Google Sheets API
    - Создайте Service Account и получите API ключ
    - Создайте Google Sheet и поделитесь доступом с email Service Account

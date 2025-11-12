@@ -114,7 +114,7 @@ export async function POST(request: Request) {
         Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "artgrani.online <artgrani@resend.dev>",
+        from: "artgrani.online <dentasher77@gmail.com>",
         to: process.env.RECIPIENT_EMAIL || "rusart25@list.ru",
         subject,
         html,
@@ -126,45 +126,45 @@ export async function POST(request: Request) {
     }
 
     // Add to Google Sheets
-    // const sheetsResponse = await fetch(
-    //   `https://sheets.googleapis.com/v4/spreadsheets/${process.env.GOOGLE_SHEET_ID}/values/Sheet1:append?valueInputOption=USER_ENTERED`,
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${process.env.GOOGLE_SHEETS_API_KEY}`,
-    //     },
-    //     body: JSON.stringify({
-    //       values: [
-    //         [
-    //           new Date().toISOString(),
-    //           formData.cityName,
-    //           formData.organizationName,
-    //           formData.groupName,
-    //           formData.direction,
-    //           formData.nomination,
-    //           formData.creativeLevel,
-    //           formData.ageCategory,
-    //           formData.participantsCount,
-    //           formData.leaderFullName,
-    //           formData.concertmasterFullName,
-    //           formData.contactPhone,
-    //           formData.email,
-    //           formData.contactPersonFullName,
-    //           formData.exactParticipantsCount,
-    //           formData.competitionNumberName,
-    //           formData.competitionNumberDuration,
-	// 		  formData.AccountTG,
-	// 		  formData.AccountMax
-    //         ],
-    //       ],
-    //     }),
-    //   },
-    // )
+    const sheetsResponse = await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${process.env.GOOGLE_SHEET_ID}/values/Sheet1:append?valueInputOption=USER_ENTERED`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.GOOGLE_SHEETS_API_KEY}`,
+        },
+        body: JSON.stringify({
+          values: [
+            [
+              new Date().toISOString(),
+              formData.cityName,
+              formData.organizationName,
+              formData.groupName,
+              formData.direction,
+              formData.nomination,
+              formData.creativeLevel,
+              formData.ageCategory,
+              formData.participantsCount,
+              formData.leaderFullName,
+              formData.concertmasterFullName,
+              formData.contactPhone,
+              formData.email,
+              formData.contactPersonFullName,
+              formData.exactParticipantsCount,
+              formData.competitionNumberName,
+              formData.competitionNumberDuration,
+			  formData.AccountTG,
+			  formData.AccountMax
+            ],
+          ],
+        }),
+      },
+    )
 
-    // if (!sheetsResponse.ok) {
-    //   console.error("Google Sheets update failed:", await sheetsResponse.text())
-    // }
+    if (!sheetsResponse.ok) {
+      console.error("Google Sheets update failed:", await sheetsResponse.text())
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {

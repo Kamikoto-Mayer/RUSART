@@ -38,7 +38,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from: "artgrani.online <artgrani@resend.dev>",
-        to: process.env.RECIPIENT_EMAIL || "rusart25@list.ru",
+        to: process.env.RECIPIENT_EMAIL || "dentasher77@gmail.com",
         subject,
         html,
       }),
